@@ -1,5 +1,5 @@
-create table USERS (
-    ID serial,
-    USER_NAME varchar(100) NOT NULL,
-    TAG_LINE varchar(100)
+create table users (
+    id serial,
+    user_name VARCHAR(100) NOT NULL,
+    tag_line VARCHAR(100)
 );
