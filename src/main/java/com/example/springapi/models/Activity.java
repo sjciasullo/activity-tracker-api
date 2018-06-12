@@ -22,8 +22,6 @@ public class Activity {
     private Long userId;
 
     @Column(name = "DATE")
-//    private @DateTimeFormat(pattern = "yyyy-MM-dd")Date date;
-//    private Date date;
     private java.sql.Date date;
 
     @Column(name = "TOTAL_MINUTES")
