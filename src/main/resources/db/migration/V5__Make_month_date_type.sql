@@ -1,0 +1,3 @@
+ALTER TABLE activities ALTER COLUMN month SET DATA TYPE DATE USING month::date;
+ALTER TABLE activities ALTER COLUMN month SET DEFAULT '1994-01-18';
+ALTER TABLE activities RENAME COLUMN month TO date;
