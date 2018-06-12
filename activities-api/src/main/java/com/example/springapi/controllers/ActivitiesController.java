@@ -20,15 +20,15 @@ public class ActivitiesController {
     }
 
     @GetMapping("/activities/{activityId}")
-    public Optional<Activity> findActivityById(@PathVariable Long activityId) {
-        return activityRepository.findById(activityId);
+    public Activity findActivityById(@PathVariable Long activityId) {
+        return activityRepository.findOne(activityId);
     }
     
     // TODO implement a @GetMapping to get a user's activities
 
     @DeleteMapping("/activities/{activityId}")
     public HttpStatus deleteUserById(@PathVariable Long activityId) {
-        activityRepository.deleteById(activityId);
+        activityRepository.delete(activityId);
         return HttpStatus.OK;
     }
 
@@ -39,7 +39,7 @@ public class ActivitiesController {
 
     @PatchMapping("/activities/{activityId}")
     public Activity updateActivityById(@PathVariable Long activityId, @RequestBody Activity activityRequest) {
-        Activity activityFromDb = activityRepository.findById(activityId).get();
+        Activity activityFromDb = activityRepository.findOne(activityId);
         activityFromDb.setTotalMinutes(activityRequest.getTotalMinutes());
         activityFromDb.setActivityName(activityRequest.getActivityName());
         activityFromDb.setNotes(activityRequest.getNotes());

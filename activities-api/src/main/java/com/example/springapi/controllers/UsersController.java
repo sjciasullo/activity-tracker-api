@@ -20,13 +20,13 @@ public class UsersController {
     }
 
     @GetMapping("/users/{userId}")
-    public Optional<User> findUserById(@PathVariable Long userId) {
-        return userRepository.findById(userId);
+    public User findUserById(@PathVariable Long userId) {
+        return userRepository.findOne(userId);
     }
 
     @DeleteMapping("/users/{userId}")
     public HttpStatus deleteUserById(@PathVariable Long userId) {
-        userRepository.deleteById(userId);
+        userRepository.delete(userId);
         return HttpStatus.OK;
     }
 
@@ -37,7 +37,7 @@ public class UsersController {
 
     @PatchMapping("/users/{userId}")
     public User updateUserById(@PathVariable Long userId, @RequestBody User userRequest) {
-        User userFromDb = userRepository.findById(userId).get();
+        User userFromDb = userRepository.findOne(userId);
         userFromDb.setUserName(userRequest.getUserName());
         userFromDb.setTagLine(userRequest.getTagLine());
         return userRepository.save(userFromDb);
