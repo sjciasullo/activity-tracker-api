@@ -1,7 +1,10 @@
 package com.example.springapi.models;
 
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
+import java.util.Date;
 
 @Data
 @AllArgsConstructor @NoArgsConstructor @Getter @Setter
@@ -18,8 +21,10 @@ public class Activity {
     @Column(name = "USER_ID")
     private Long userId;
 
-    @Column(name = "MONTH")
-    private String month;
+    @Column(name = "DATE")
+//    private @DateTimeFormat(pattern = "yyyy-MM-dd")Date date;
+//    private Date date;
+    private java.sql.Date date;
 
     @Column(name = "TOTAL_MINUTES")
     private Integer totalMinutes;
